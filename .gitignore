@@ -1,0 +1,12 @@
+#IntelliJ
+*.iml
+.idea
+
+#Gradle
+.gradle
+
+# OSX
+.DS_Store
+
+# Classes
+out/
