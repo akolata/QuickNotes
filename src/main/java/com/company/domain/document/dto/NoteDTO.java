@@ -2,6 +2,7 @@ package com.company.domain.document.dto;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 public class NoteDTO {
 
@@ -12,6 +13,8 @@ public class NoteDTO {
     @NotEmpty
     @Size(min = 4, max = 200, message = "Description must be between {2} and {1}")
     private String description;
+
+    private List<String> tagsList;
 
     public String getTitle() {
         return title;
@@ -29,6 +32,13 @@ public class NoteDTO {
         this.description = description;
     }
 
+    public List<String> getTagsList() {
+        return tagsList;
+    }
+
+    public void setTagsList(List<String> tagsList) {
+        this.tagsList = tagsList;
+    }
 
     @Override
     public String toString() {

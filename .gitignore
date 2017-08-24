@@ -4,6 +4,7 @@
 
 #Gradle
 .gradle
+*.jar
 
 # OSX
 .DS_Store

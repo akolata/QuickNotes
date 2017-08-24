@@ -8,6 +8,6 @@ import java.util.List;
 public interface TagRepository
 extends MongoRepository<Tag, String>{
 
-    List<Tag> findByName(String name);
+    List<Tag> findByNameIgnoreCase(String name);
 
 }

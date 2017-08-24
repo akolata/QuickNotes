@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -39,7 +40,8 @@ public class NotesController {
 
     @PostMapping("/add")
     public String processAddNoteForm(@Valid @ModelAttribute(name = "note") NoteDTO noteDTO, BindingResult bindingResult,
-                                     @RequestParam("tagsList") List<String> tagsList){
+                                     @RequestParam("tagsList") List<String> tagsList,
+                                     RedirectAttributes redirectAttributes){
 
         if(bindingResult.hasErrors()){
             return ADD_NOTE_PAGE_NAME;
@@ -50,12 +52,13 @@ public class NotesController {
         if(tagsList == null){
             note.setTags(new ArrayList<>());
         }else{
-            note.setTagsFromStringList(tagsList);
+            note.setTags(tagsList);
         }
 
         noteRepository.save(note);
 
-        return ADD_NOTE_PAGE_NAME;
+        redirectAttributes.addFlashAttribute("noteCreated", Boolean.TRUE);
+        return "redirect:/home";
     }
 
     @ModelAttribute("tags")

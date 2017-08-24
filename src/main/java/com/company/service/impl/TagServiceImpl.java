@@ -19,7 +19,7 @@ implements TagService {
 
     @Override
     public boolean isTagInDatabase(String tagName) {
-        return !tagRepository.findByName(tagName).isEmpty();
+        return !tagRepository.findByNameIgnoreCase(tagName).isEmpty();
     }
 
     @Override

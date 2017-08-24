@@ -45,7 +45,7 @@ public class TagController {
 
         if(tagService.isTagInDatabase(tagDTO.getName())){
             redirectAttributes.addFlashAttribute("tagError",
-                    String.format("Tag %s already in database",tagDTO.getName()));
+                    String.format("Tag %s already in database (letters size is ignored)",tagDTO.getName()));
             return "redirect:/tag/add";
         }
 

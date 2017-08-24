@@ -41,7 +41,7 @@
         <div class="form-group row">
             <div class="col-sm-12">
                 <label for="tags">Tags : </label>
-                <select id="tags"  multiple="multiple" class="form-control">
+                <select id="tags" th:field="${note.tagsList}" multiple="multiple" class="form-control">
                     <option th:each="tag : ${tags}"
                             th:value="${tag.name}"
                             th:text="${tag.name}" name="tagsList" >Option</option>

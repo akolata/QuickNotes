@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.LinkedList;
 import java.util.List;
 
 @Document(collection = "notes")
@@ -22,7 +21,7 @@ public class Note {
     @CreatedDate
     private LocalDateTime createdDate;
 
-    private List<Tag> tags;
+    private List<String> tags;
 
     public Note(){}
 
@@ -63,21 +62,11 @@ public class Note {
         this.title = title;
     }
 
-    public List<Tag> getTags() {
+    public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
-
-    public void setTagsFromStringList(List<String> tagsList) {
-        List<Tag> tags = new LinkedList<>();
-
-        for(String tag : tagsList){
-            tags.add(new Tag(tag));
-        }
-
+    public void setTags(List<String> tags) {
         this.tags = tags;
     }
 
