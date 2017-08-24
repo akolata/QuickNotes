@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymelaf/layout"
+      layout:decorator="layout/template">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Tag</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <br/>
+        <br/>
+        <form th:action="@{/tag/add}" th:method="POST" th:object="${tag}">
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <label for="tag">Tag :</label>
+                </div>
+                <div class="col-sm-12">
+                    <input id="tag" type="text" th:field="${tag.name}" class="form-control" placeholder="Tag" />
+                </div>
+                <div class="col-sm-12">
+                    <div class="message-div" >
+                        <p th:errors="*{name}" class="alert alert-danger"></p>
+                    </div>
+                    <div th:if="${tagError}" >
+                        <p display="block" ><span th:text="${tagError}" class="alert alert-danger text-center">Error message</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 offset-sm-4">
+                    <button type="submit" class="btn btn-primary">Add tag</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

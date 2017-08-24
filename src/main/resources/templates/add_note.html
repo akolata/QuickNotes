@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymelaf/layout"
+      layout:decorator="layout/template">
+<head>
+    <title>Add note</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <br/>
+    <br/>
+    <form th:object="${note}" th:action="@{/note/add}" th:method="POST">
+        <div class="form-group row">
+            <div class="col-sm-2 col-md-12">
+                <label for="title">Title :</label>
+            </div>
+            <div class="col-sm-10 col-md-12">
+                <input id="title" th:field="${note.title}" type="text" class="form-control" placeholder="Title"/>
+            </div>
+            <div class="col-sm-12">
+                <div class="message-div" >
+                    <p th:errors="*{title}" class="alert alert-danger"></p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <label for="description">Description :</label>
+            </div>
+            <div class="col-sm-12">
+                <textarea id="description" th:field="${note.description}" type="text" class="form-control"
+                          placeholder="Description"></textarea>
+            </div>
+            <div class="col-sm-12">
+                <div class="message-div" >
+                    <p th:errors="*{description}" class="alert alert-danger"></p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <label for="tags">Tags : </label>
+                <select id="tags"  multiple="multiple" class="form-control">
+                    <option th:each="tag : ${tags}"
+                            th:value="${tag.name}"
+                            th:text="${tag.name}" name="tagsList" >Option</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-check row">
+            <div class="col-sm-12 offset-md-4 col-md-4">
+                <button type="submit" class="btn btn-primary">Add !</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
