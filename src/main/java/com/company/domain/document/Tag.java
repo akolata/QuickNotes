@@ -5,6 +5,8 @@ import org.springframework.data.annotation.Id;
 
 public class Tag {
 
+    public static final String FIND_ALL_TAGS = "TAGS_ALL";
+
     @Id
     private String id;
 

@@ -48,6 +48,11 @@
                 </select>
             </div>
         </div>
+        <div th:if="${tagNotSelected}" class="message-div">
+            <div class="alert alert-danger">
+                At least one tag has to be chosen
+            </div>
+        </div>
         <div class="form-check row">
             <div class="col-sm-12 offset-md-4 col-md-4">
                 <button type="submit" class="btn btn-primary">Add !</button>

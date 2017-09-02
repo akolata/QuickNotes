@@ -6,14 +6,13 @@ import java.util.List;
 
 public class NoteDTO {
 
-    @NotEmpty
     @Size(min = 4, max=50, message = "Title must be between {2} and {1}")
     private String title;
 
-    @NotEmpty
     @Size(min = 4, max = 200, message = "Description must be between {2} and {1}")
     private String description;
 
+    @NotEmpty
     private List<String> tagsList;
 
     public String getTitle() {
@@ -47,4 +46,5 @@ public class NoteDTO {
                 ", description='" + description + '\'' +
                 '}';
     }
+
 }

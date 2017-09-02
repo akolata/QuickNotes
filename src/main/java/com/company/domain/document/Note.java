@@ -88,7 +88,8 @@ public class Note {
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        return String.format("Note[%s,%s, %s, %s]TAGS =", id, title, description, createdDate.format(formatter)) + tags;
+        return String.format("Note[%s,%s, %s, %s]TAGS =", id, title, description,
+                createdDate == null ? "" : createdDate.format(formatter)) + tags;
     }
 
 }

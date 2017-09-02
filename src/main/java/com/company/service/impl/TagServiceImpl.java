@@ -6,6 +6,8 @@ import com.company.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TagServiceImpl
 implements TagService {
@@ -20,6 +22,11 @@ implements TagService {
     @Override
     public boolean isTagInDatabase(String tagName) {
         return !tagRepository.findByNameIgnoreCase(tagName).isEmpty();
+    }
+
+    @Override
+    public List<Tag> findAll() {
+        return tagRepository.findAll();
     }
 
     @Override

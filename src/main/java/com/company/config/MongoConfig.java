@@ -34,4 +34,5 @@ extends AbstractMongoConfiguration{
     public Mongo mongo() throws Exception {
         return new MongoClient(mongoDBHost, mongoDBPort);
     }
+
 }
